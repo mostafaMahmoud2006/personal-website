@@ -1,0 +1,297 @@
+/* =========================
+   Responsive — 1024px (Tablet Landscape)
+========================= */
+
+@media (max-width: 1024px) {
+
+    /* Hero */
+    .hero-content {
+        width: 55%;
+    }
+
+    .hero-image {
+        width: 45%;
+    }
+
+    .hero-content h1 {
+        width: 70%;
+    }
+
+    /* About */
+    .about .wrapper .profile {
+        grid-template-columns: 1fr;
+    }
+
+    .about .wrapper .personal-info {
+        width: 100%;
+        margin-bottom: 40px;
+    }
+
+    /* Projects */
+    .projects .wrapper {
+        padding: 0 16px;
+    }
+
+    .projects-showcase {
+        padding: 32px 24px;
+    }
+
+    /* Contact */
+    .contact .contact-content {
+        gap: 50px;
+    }
+}
+
+
+/* =========================
+   Responsive — 768px (Tablet Portrait)
+========================= */
+
+@media (max-width: 1015px) {
+
+    .wrapper {
+        width: 92%;
+    }
+
+    /* Nav */
+    header .wrapper nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 4px;
+    }
+
+    header .wrapper nav a {
+        padding: 4px 12px;
+        font-size: 0.6rem;
+    }
+
+    /* Hero */
+    .hero .wrapper {
+        flex-direction: column;
+    }
+
+    .hero-content {
+        width: 100%;
+        gap: 20px;
+    }
+
+    .hero-image {
+        width: 100%;
+        justify-content: center;
+        margin-top: 30px;
+    }
+
+    .hero-image img {
+        width: 80%;
+    }
+
+    .hero-content h1 {
+        width: 100%;
+        font-size: clamp(3rem, 14vw, 6rem);
+    }
+
+    .hero-content .intro-text {
+        width: 80%;
+    }
+
+    .work-info {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    /* About */
+    .about .wrapper .profile {
+        grid-template-columns: 1fr;
+    }
+
+    .about .wrapper .job-title {
+        font-size: 2.2rem;
+    }
+
+    /* Projects */
+    .projects-showcase {
+        padding: 28px 16px;
+    }
+
+    .project-card {
+        width: 100%;
+        max-width: 420px;
+        height: auto;
+    }
+
+    /* Contact */
+    .contact .wrapper {
+        flex-direction: column;
+    }
+
+    .contact .contact-content {
+        gap: 40px;
+        width: 100%;
+    }
+
+    .contact .contact-form-container {
+        width: 100%;
+    }
+
+    .contact .contact-form-container form textarea {
+        height: 200px;
+    }
+
+    .contact .background-title h2 {
+        font-size: clamp(60px, 22vw, 100px);
+    }
+
+    /* Footer */
+    .brand-name {
+        font-size: 20vw;
+    }
+
+    /* Hire me button */
+    .hire-me {
+        height: 120px;
+        width: 48px;
+        gap: 20px;
+    }
+
+    .hire-me svg {
+        width: 28px;
+        height: 28px;
+    }
+}
+
+
+/* =========================
+   Responsive — 480px (Mobile)
+========================= */
+
+@media (max-width: 480px) {
+
+    .wrapper {
+        width: 95%;
+    }
+
+    /* Nav — hide on very small screens, keep only essentials */
+    header .wrapper nav a {
+        font-size: 0.55rem;
+        padding: 4px 8px;
+        letter-spacing: 0.5px;
+    }
+
+    /* Hero */
+    .hero {
+        margin-top: 30px;
+    }
+
+    .hero-content h1 {
+        font-size: clamp(2.6rem, 16vw, 4rem);
+    }
+
+    .hero-content .intro-text {
+        width: 90%;
+        font-size: 0.65rem;
+    }
+
+    .hero-image img {
+        width: 95%;
+    }
+
+    .social-links {
+        flex-wrap: wrap;
+        height: auto;
+        gap: 10px;
+    }
+
+    .download-btn {
+        padding: 0 16px;
+        font-size: 0.6rem;
+    }
+
+    /* About */
+    .about .wrapper .job-title {
+        font-size: 1.8rem;
+    }
+
+    .about .wrapper .quote h2 {
+        font-size: 1rem;
+    }
+
+    .about .wrapper .profile .info-card {
+        padding: 1rem 1.2rem;
+    }
+
+    /* Projects */
+    .projects {
+        padding: 30px 0;
+    }
+
+    .projects-showcase {
+        padding: 20px 12px;
+        border-radius: 16px;
+    }
+
+    .section-heading {
+        padding: 0 10px;
+        margin-bottom: 30px;
+    }
+
+    .project-card {
+        width: 100%;
+        height: auto;
+    }
+
+    .project-preview {
+        height: 160px;
+    }
+
+    /* Contact */
+    .contact .get-in-touch h2 {
+        font-size: clamp(22px, 7vw, 32px);
+    }
+
+    .contact .get-in-touch p {
+        max-width: 100%;
+        font-size: 13px;
+    }
+
+    .contact .contact-form-container form textarea {
+        height: 160px;
+    }
+
+    .contact .background-title {
+        display: none;
+    }
+
+    /* Footer */
+    .brand-name {
+        font-size: 18vw;
+    }
+
+    .cube {
+        width: 60px;
+        height: 60px;
+    }
+
+    .front-face  { transform: translateZ(30px); }
+    .back-face   { transform: translateZ(-30px); }
+    .left-face   { transform: translateX(-30px) rotateY(-90deg); }
+    .right-face  { transform: translateX(30px) rotateY(90deg); }
+    .top-face    { transform: translateY(-30px) rotateX(90deg); }
+    .bottom-face { transform: translateY(30px) rotateX(-90deg); }
+
+    /* Hire me */
+    .hire-me {
+        height: 100px;
+        width: 40px;
+        padding: 8px;
+        gap: 14px;
+    }
+
+    .hire-me svg {
+        width: 22px;
+        height: 22px;
+    }
+
+    .hire-me span a {
+        font-size: 0.55rem;
+    }
+}

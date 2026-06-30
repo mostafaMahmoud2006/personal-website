@@ -921,7 +921,7 @@ header .wrapper nav a:hover {
     transform: translate(-50%, -50%);
 
     font-family: 'Playfair Display', serif;
-    font-size: clamp(5rem, 12vw, 10rem);
+    font-size: clamp(5vw, 12vw, 10rem);
     font-weight: 700;
     font-style: italic;
     letter-spacing: 4px;

@@ -274,6 +274,16 @@
     .hire-me span {
         font-size: 9px;
     }
+   .contact .method-info h1 {
+
+        display: none;
+    }
+
+    .contact .method-info p {
+
+        display: none;
+
+    }
 }
 
 /* ---- RESPONSIVE ---- */

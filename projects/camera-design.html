@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Camera</title>
+
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #eeeeee;
+        }
+
+        .camera {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 800px;
+            background-color: #cccccc;
+            height: 500px;
+            border-radius: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .camera::after {
+            position: absolute;
+            content: '';
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100%;
+            height: 40%;
+            background-color: #607d8b;
+            z-index: -1;
+        }
+
+        .lince {
+            position: relative;
+            background-color: #ededed;
+            width: 400px;
+            height: 400px;
+            box-shadow: 0 0 40px 1px rgba(0, 0, 0, 0.594);
+            border-radius: 50%;
+        }
+
+        .lince::after {
+            position: absolute;
+            content: '';
+            background-color: #cecece;
+            width: 350px;
+            height: 350px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .lince::before {
+            position: absolute;
+            content: '';
+            background-color: rgb(43, 43, 43);
+            width: 300px;
+            height: 300px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            z-index: 2;
+        }
+
+        .main-lince {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 3;
+            background-color: #358fb6;
+        }
+
+        .main-lince::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #68b8db;
+            top: 20%;
+            left: 10%;
+        }
+
+        .topCam {
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 200px;
+            height: 60px;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+            background-color: #607d8b;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .topCam::after,
+        .topCam::before {
+            position: absolute;
+            content: '';
+            top: 15.5px;
+            border: 45px solid;
+            border-color:  transparent  transparent #607d8b transparent;
+            border-bottom-left-radius: 20px;
+        }
+        .topCam::after {
+            left: -30px;
+            transform: rotate(135deg);
+        }
+        .topCam::before {
+            right: -30px;
+            transform: rotate(-135deg) scaleX(-1);
+        }
+
+        .topCam div {
+            background-color: #cecece;
+            width: 75%;
+            height: 30px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .topCam div span {
+            background-color: #607d8b;
+            width: 35%;
+            height: 20px;
+            border-radius: 5px;
+        }
+
+        .camBtn {
+            width: 100px;
+            height: 20px;
+            background-color: #607d8b;
+            position: absolute;
+            top: -20px;
+            left: 50px;
+            border-top-left-radius: 30px;
+            border-top-right-radius: 30px;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
+
+        .camBtn::after {
+            background-color: red;
+            width: 80%;
+            height: 7px;
+            position: absolute;
+            border-radius: 20px;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            content: '';
+            top: -7px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        h1 {
+            margin-bottom: 100px;
+            background: linear-gradient(to right,rgb(255, 30, 0) 20%, rgb(0, 0, 0));
+            background-clip: text;
+            color: transparent;
+            font-size: 4rem;
+            font-family: Arial, Helvetica, sans-serif;
+            -webkit-text-stroke: 2px black;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Camera</h1>
+    <div class="camera">
+        <div class="camBtn"></div>
+        <div class="topCam">
+            <div>
+                <span></span>
+            </div>
+        </div>
+        <div class="lince">
+            <div class="main-lince"></div>
+        </div>
+    </div>
+</body>
+
+</html>

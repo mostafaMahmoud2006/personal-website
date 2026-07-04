@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+
+        /* Task - 1 */
+        .box {
+            width: 100%;
+            height: 400px;
+            margin-bottom: 10px;
+            background-color: rgb(33, 33, 33);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .circle {
+            background-color: rgb(242, 240, 240);
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            animation: loading 1s infinite alternate;
+
+        }
+
+
+
+        .two {
+            animation-delay: 0.3s;
+        }
+
+        .three {
+            animation-delay: 0.6s;
+        }
+
+        @keyframes loading {
+            form {
+                transform: translateY(-20px);
+            }
+
+            to {
+                transform: translateY(20px);
+            }
+        }
+
+        /* Task - 2 */
+        .box .wrap {
+            width: 210px;
+            height: 210px;
+            position: relative;
+            transform: rotate(-30deg);
+        }
+
+        .box .square {
+            width: 100px;
+            height: 100px;
+            position: absolute;
+        }
+
+        .box .wrap .square1 {
+            top: 0;
+            left: 0;
+            background-color: rgb(0, 94, 255);
+            animation: sq1 2s ease infinite;
+            animation-delay: 1s;
+
+        }
+
+        .box .wrap .square2 {
+            top: 0;
+            right: 0;
+            background-color: rgb(0, 174, 255);
+            animation: sq2 2s ease infinite;
+        }
+
+        .box .wrap .square3 {
+            bottom: 0;
+            right: 0;
+            background-color: rgb(0, 94, 255);
+            animation: sq3 2s ease infinite;
+            animation-delay: 1s;
+        }
+
+        .box .wrap .square4 {
+            bottom: 0;
+            left: 0;
+            background-color: rgb(0, 174, 255);
+            animation: sq4 2s ease infinite;
+
+        }
+
+        @keyframes sq1 {
+            25% {
+                transform: translateX(110px);
+            }
+
+            50% {
+                transform: translateX(110px) translateY(110px);
+            }
+
+            75% {
+                transform: translateY(110px);
+            }
+
+            100% {
+                transform: translate(0, 0);
+            }
+        }
+
+        @keyframes sq2 {
+            25% {
+                transform: translateY(110px);
+            }
+
+            50% {
+                transform: translateX(-110px) translateY(110px);
+            }
+
+            75% {
+                transform: translateX(-110px);
+            }
+
+            100% {
+                transform: translate(0, 0);
+            }
+        }
+
+        @keyframes sq3 {
+            25% {
+                transform: translateX(-110px);
+            }
+
+            50% {
+                transform: translateX(-110px) translateY(-110px);
+            }
+
+            75% {
+                transform: translateY(-110px);
+            }
+
+            100% {
+                transform: translate(0, 0);
+            }
+        }
+
+        @keyframes sq4 {
+            25% {
+                transform: translateY(-110px);
+            }
+
+            50% {
+                transform: translateX(110px) translateY(-110px);
+            }
+
+            75% {
+                transform: translateX(110px);
+            }
+
+            100% {
+                transform: translate(0, 0);
+            }
+        }
+
+
+        /* Task - 3 */
+        .loading {
+            background-color: white;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            position: relative;
+            transition: all 0.3s ease;
+            animation: loading-rotate 2s linear infinite;
+
+        }
+
+        .loading::before {
+            content: '';
+            position: absolute;
+
+            background: linear-gradient(black 50%, white 50%);
+            width: 200px;
+            height: 200px;
+
+            inset: 0;
+            margin: auto;
+
+            border-radius: 50%;
+
+
+        }
+
+        .cover {
+            position: absolute;
+            inset: 0;
+            margin: auto;
+
+            width: 155px;
+            height: 155px;
+            border-radius: 50%;
+
+            background-color: rgb(33, 33, 33);
+
+            box-shadow: 0 0 50px 1px #000000;
+        }
+
+        .cover::before,
+        .cover::after {
+            content: '';
+            position: absolute;
+            width: 23px;
+            height: 23px;
+            background-color: rgb(0, 0, 0);
+            border-radius: 50%;
+            top: 67px;
+
+        }
+
+
+        .cover::before {
+            left: -23px;
+        }
+
+        .cover::after {
+            right: -23px;
+        }
+
+
+        @keyframes loading-rotate {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Task - 4 */
+
+        .box:has(.water-load) {
+            background-color: black;
+        }
+
+        .water-load {
+            position: relative;
+            width: 300px;
+            height: 300px;
+        }
+
+        .water-load .frame {
+            position: absolute;
+            inset: 0;
+            margin: auto;
+
+            background: linear-gradient(to right, rgb(0, 170, 255), rgb(255, 0, 200));
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: scaleMore 1s ease infinite alternate;
+        }
+
+
+        .water-load .frame:nth-child(1) {
+            width: 110px;
+            height: 110px;
+            z-index: 5;
+            animation-delay: 0.1s;
+        }
+
+        .water-load .frame:nth-child(1) .waterCover {
+            width: 103px;
+            height: 103px;
+            background-color: rgb(0, 0, 0);
+            border-radius: 50%;
+        }
+
+        .water-load .frame:nth-child(2) {
+            width: 160px;
+            height: 160px;
+            z-index: 4;
+            animation-delay: 0.2s;
+        }
+
+        .water-load .frame:nth-child(2) .waterCover {
+            width: 152px;
+            height: 152px;
+            background-color: rgb(0, 0, 0);
+            border-radius: 50%;
+        }
+
+
+        .water-load .frame:nth-child(3) {
+            width: 210px;
+            height: 210px;
+            z-index: 3;
+            animation-delay: 0.3s;
+        }
+
+        .water-load .frame:nth-child(3) .waterCover {
+            width: 199px;
+            height: 199px;
+            background-color: rgb(0, 0, 0);
+            border-radius: 50%;
+        }
+
+        .water-load .frame:nth-child(4) {
+            width: 260px;
+            height: 260px;
+            z-index: 2;
+            animation-delay: 0.4s;
+        }
+
+        .water-load .frame:nth-child(4) .waterCover {
+            width: 253px;
+            height: 253px;
+            background-color: rgb(0, 0, 0);
+            border-radius: 50%;
+        }
+
+        .water-load .frame:nth-child(5) {
+            width: 310px;
+            height: 310px;
+            z-index: 1;
+            animation-delay: 0.5s;
+        }
+
+        .water-load .frame:nth-child(5) .waterCover {
+            width: 305px;
+            height: 305px;
+            background-color: rgb(0, 0, 0);
+            border-radius: 50%;
+        }
+
+
+        @keyframes scaleMore {
+            to {transform: scale(1.2); filter: grayscale(1);}
+        }
+
+
+        /* Task - 5 */
+        .box {
+            perspective: 800px;
+        }
+
+        .cube {
+            width: 200px;
+            height: 200px;
+            position: relative;
+            transform-style: preserve-3d;
+            animation: cube-rotae 5s ease infinite alternate;
+        }
+
+        .cube .face {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+        }
+
+        .cube .front {
+            transform: translateZ(100px);
+            background-color: rgba(255, 0, 0, 0.263);
+        }
+        .cube .back {
+            transform: translateZ(-100px);
+            background-color: rgba(0, 174, 255, 0.263);
+        }
+
+        .cube .left {
+            transform: translateX(-100px) rotateY(90deg);
+            background-color: rgba(0, 81, 255, 0.263);
+        }
+        .cube .right {
+            transform: translateX(100px) rotateY(90deg);
+            background-color: rgba(255, 0, 255, 0.263);
+        }
+
+        .cube .top {
+            transform: translateY(-100px) rotateX(90deg);
+            background-color: rgba(255, 77, 0, 0.263);
+        }
+        .cube .bottom {
+            transform: translateY(100px) rotateX(90deg);
+            background-color: rgba(255, 204, 0, 0.263);
+        }
+
+        @keyframes cube-rotae {
+            0% {transform: scaleZ(1) rotateX(360deg);}
+            20% {transform: scale(2) rotateY(300deg) rotateX(300deg);}
+            40% {transform: scale(2) rotateY(240deg) rotateX(240deg);}
+            60% {transform: scale(2) rotateY(190deg) rotateX(190deg);}
+            80% {transform: scale(2) rotateY(130deg) rotateX(130deg);}
+            100% {transform: scaleZ(1) rotateX(360deg);}
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="circle one"></div>
+        <div class="circle two"></div>
+        <div class="circle three"></div>
+    </div>
+
+
+    <div class="box">
+        <div class="wrap">
+            <div class="square square1"></div>
+            <div class="square square2"></div>
+            <div class="square square3"></div>
+            <div class="square square4"></div>
+        </div>
+    </div>
+
+    <div class="box">
+        <div class="loading">
+            <div class="cover"></div>
+        </div>
+    </div>
+
+    <div class="box">
+        <div class="water-load">
+            <div class="frame">
+                <div class="waterCover"></div>
+            </div>
+            <div class="frame">
+                <div class="waterCover"></div>
+            </div>
+            <div class="frame">
+                <div class="waterCover"></div>
+            </div>
+            <div class="frame">
+                <div class="waterCover"></div>
+            </div>
+            <div class="frame">
+                <div class="waterCover"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="box">
+        <div class="cube">
+            <div class="face front"></div>
+            <div class="face back"></div>
+            <div class="face top"></div>
+            <div class="face bottom"></div>
+            <div class="face left"></div>
+            <div class="face right"></div>
+        </div>
+    </div>
+</body>
+
+</html>

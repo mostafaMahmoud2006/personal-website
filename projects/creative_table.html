@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table - Hover</title>
+    <style>
+        /* ============= Color ============= */
+        :root {
+            --background-color: rgb(242, 242, 242);
+            --font-color: black;
+            --border-color: rgb(212, 212, 212);
+
+            --td-padding: 30px;
+            --td-background-color: white;
+            --td-hover: blue;
+            --table-width: 220px;
+        }
+
+        /* ============= Reset The Layout ============= */
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            background-color: var(--background-color, rgb(242, 242, 242));
+        }
+
+        /* ============= Title Style ============= */
+        h1 {
+            font-size: 3rem;
+            color: transparent;
+            -webkit-text-stroke: 2px var(--font-color, black);
+            margin-bottom: 10px;
+        }
+
+        /* ============= Table Style ============= */
+        table {
+            text-align: center;
+        }
+
+        td,
+        th {
+            border: 1px solid var(--border-color, rgb(212, 212, 212));
+            background-color: var(--td-background-color, white);
+            width: var(--table-width, 220px);
+            padding: var(--td-padding, 10px) 0;
+            transition: all 0.3s ease;
+        }
+
+        /* ============= Table Hover =============  */
+
+        td:hover {
+            color: var(--td-hover, blue);
+            border: 1px solid var(--td-hover, blue);
+        }
+
+        tr:hover td {
+            background-color: rgb(242, 242, 242);
+        }
+
+        table:has(td:nth-child(1):hover) td:nth-child(1) {
+            background-color: rgb(242, 242, 242);
+        }
+
+        table:has(td:nth-child(2):hover) td:nth-child(2) {
+            background-color: rgb(242, 242, 242);
+        }
+
+        table:has(td:nth-child(3):hover) td:nth-child(3) {
+            background-color: rgb(242, 242, 242);
+        }
+    </style>
+</head>
+
+<body>
+    <h1>CREATIVE TABLE</h1>
+    <table>
+        <tr>
+            <th>Language</th>
+            <th>Created By</th>
+            <th>Created Year</th>
+        </tr>
+        <tr>
+            <td>Python</td>
+            <td>Guido van Rossum</td>
+            <td>1991</td>
+        </tr>
+        <tr>
+            <td>Java</td>
+            <td>James Gosling</td>
+            <td>1995</td>
+        </tr>
+        <tr>
+            <td>JavaScript</td>
+            <td>Brendan Eich</td>
+            <td>1995</td>
+        </tr>
+        <tr>
+            <td>PHP</td>
+            <td>Rasmus Lerdorf</td>
+            <td>1995</td>
+        </tr>
+        <tr>
+            <td>Swift</td>
+            <td>Chris Lattner</td>
+            <td>2014</td>
+        </tr>
+    </table>
+</body>
+
+</html>

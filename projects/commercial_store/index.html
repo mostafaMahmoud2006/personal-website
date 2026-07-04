@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MZSAI | Store</title>
+    <!-- Inter Font for a premium minimalist design -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <!-- MESSAGE -->
+        <div class="message" v-show="showMessage">
+            <div class="wrap">
+                <div class="logo"></div>
+
+                <div class="info">
+                    <h3>Thank you for ordering</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt, nesciunt!</p>
+                </div>
+
+                <div class="buttons">
+                    <button id="view" class="viewOrder" @click="isOrdersOpen = true; showMessage = false">
+                        VIEW ORDER
+                    </button>
+
+                    <button id="thanks" class="continue" @click="showMessage = false">
+                        CONTINUE SHOPPING
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <section class="hero" id="hero">
+
+            <!-- CART -->
+            <div :class="{'card': true, 'active': isCartOpen}" id="cart">
+
+                <div class="cart-header">
+                    <h2>Cart</h2>
+
+                    <div class="close-cart" @click="isCartOpen = !isCartOpen">
+                        <i class="fa-solid fa-xmark"></i>
+                    </div>
+                </div>
+
+                <div class="cart-body">
+
+                    <div class="cart-item" v-for="product in cartItems" :key="product.id" :id="product.id">
+
+                        <div class="cart-item-img">
+                            <img :src="'images/' + product.src" alt="Product Photo">
+                        </div>
+
+                        <div class="cart-item-details">
+
+                            <div class="item-name">
+                                {{ product.name }}
+                            </div>
+
+                            <div class="item-actions">
+
+                                <div class="qty-control">
+
+                                    <button @click="decreaseQuantity(product.id)">
+                                        <i class="fa-solid fa-minus"></i>
+                                    </button>
+
+                                    <span>
+                                        {{ product.quantity }}
+                                    </span>
+
+                                    <button @click="increaseQuantity(product.id)">
+                                        <i class="fa-solid fa-plus"></i>
+                                    </button>
+
+                                </div>
+
+                                <div class="item-price">
+                                    SAR {{ product.price }}
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="cart-footer">
+                    <button class="checkout-btn" @click="checkout()">
+                        Done order
+                    </button>
+                </div>
+
+            </div>
+
+            <!-- HEADER -->
+            <header>
+                <div class="container">
+
+                    <h1 id="title">M.Z.S.AI</h1>
+
+                    <div class="sitting">
+
+                        <div class="mode" id="mode" @click="toggleTheme()">
+                            <i class="fa-solid fa-moon"></i>
+                        </div>
+
+                        <div class="cart" @click="isCartOpen = !isCartOpen">
+                            <i class="fa-solid fa-bag-shopping"></i>
+                        </div>
+
+                    </div>
+
+                </div>
+            </header>
+
+            <!-- MAIN -->
+            <main>
+
+                <!-- SIDEBAR -->
+                <aside class="sidebar-nav">
+
+                    <nav>
+                        <button class="active" @click="setFilter('all')">All</button>
+                        <button @click="setFilter('Men')">Men</button>
+                        <button @click="setFilter('Women')">Women</button>
+                    </nav>
+
+                    <div class="aside-footer">
+
+                        <button class="my-orders-btn" id="myOrder" @click="isOrdersOpen = !isOrdersOpen">
+                            {{ isOrdersOpen ? 'home' : 'my orders' }}
+                        </button>
+
+                    </div>
+
+                </aside>
+
+                <!-- PRODUCTS -->
+                <div class="container main-content">
+
+                    <div :class="{'cards': true, 'active': isOrdersOpen}" id="productsHolder">
+
+                        <div v-for="product in filteredProducts" :key="product.id" class="productCard">
+
+                            <div class="img">
+
+                                <img :src="`images/${product.src}`" alt="Nike Air Zoom">
+
+                                <button class="add-to-cart">
+                                    <i class="fa-solid fa-plus" @click="addToCart(product.id)"></i>
+                                </button>
+
+                            </div>
+
+                            <div class="cardBody">
+
+                                <h2 class="product-title">
+                                    Nike Air Zoom
+                                </h2>
+
+                                <p class="product-category">
+                                    {{ `${product.gender}'s Road Running Shoes` }}
+                                </p>
+
+                                <p class="product-colors">
+                                    4 Colours
+                                </p>
+
+                                <h2 class="product-price">
+                                    {{ `${product.price}$` }}
+                                </h2>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- ORDERS -->
+                    <div :class="{'orders': true, 'active': isOrdersOpen}" id="orderAria">
+
+                        <div class="box" v-if="orders.length > 0">
+
+                            <div class="date">
+                                {{ new Date().toString().slice(0, 4) }}
+
+                                <span>
+                                    {{ new Date().getDay() }}/{{ new Date().getMonth() }}/{{ new Date().getFullYear() }}
+                                </span>
+                            </div>
+
+                            <div class="item" v-for="ele in orders" :key="ele.id">
+
+                                <div class="details">
+
+                                    <div class="name">
+                                        Product name: {{ ele.name }}
+                                    </div>
+
+                                    <div class="quantity">
+                                        Product quantity: {{ ele.quantity }}
+                                    </div>
+
+                                    <div class="total">
+                                        Total: {{ ele.quantity * ele.price }}$
+                                    </div>
+
+                                </div>
+
+                                <div class="img">
+                                    <img :src="'images/' + ele.src">
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="noItems" v-else>
+                            No Items Found
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </main>
+
+        </section>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/vue.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

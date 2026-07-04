@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Project</title>
+</head>
+
+<body>
+    <div class="error">
+        <div class="holder">
+            <p>No Banck accounts</p>
+            <input id="userName" type="text" placeholder="Enter your name">
+            <button id="new-user">Create new users</button>
+        </div>
+    </div>
+    <div class="wrapper">
+        <header>
+            <div class="logo"></div>
+
+            <div class="info">
+                <button id="remove">Remove</button>
+                <div class="user-info">
+                    <div id="user">User 1</div>
+                    <div class="profile">
+                        <div></div>
+                    </div>
+        </header>
+
+        <section>
+            <main id="cards">
+                <div class="view">
+                    <div id="carousel" class="cards">
+                        <div class="card">
+                            <span id="bankName">mzsai</span>
+                            <span id="cardNumber">444-4444-4444-4444</span>
+                            <div>
+                                <span id="csv">608</span>
+                                <span id="exp">1/21</span>
+                            </div>
+                        </div>
+                    </div>
+                    <button id="addCard">Create Card</button>
+                </div>
+            </main>
+
+            <main class="balance">
+                <div class="top">
+                    <span>Balance</span>
+                    <div class="counter">
+                        <div id="balance" class="circle">2000</div>
+                    </div>
+                </div>
+
+                <div class="buttons">
+                    <div class="withdraw">
+                        <button id="withdraw">Withdraw</button>
+                        <input placeholder="Enter the amount of money" type="text" id="amountWithdraw">
+                    </div>
+                    <div class="deposit">
+                        <button id="deposit">Deposit</button>
+                        <input type="number" id="amountDeposit" min="0" required placeholder="Enter the amount of money">
+                    </div>
+                </div>
+            </main>
+
+            <main id="history">
+                <button id="showHistory">Show history</button>
+                <span class="title">History of Transactions</span>
+                <div class="transactions" id="transactions">
+                    <div class="transaction">
+                        <span id="index">1</span>
+                        <div>
+                            <span id="about">Withdraw 100</span>
+                            <span id="date">1/2/2002</span>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </section>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+
+</html>

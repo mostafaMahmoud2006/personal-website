@@ -26,9 +26,9 @@
 
     // Fill these in with your real EmailJS credentials (https://www.emailjs.com/).
     const EMAILJS_CONFIG = {
-        publicKey: "YOUR_EMAILJS_PUBLIC_KEY",
-        serviceId: "YOUR_EMAILJS_SERVICE_ID",
-        templateId: "YOUR_EMAILJS_TEMPLATE_ID"
+        publicKey: "93ChQWcUBvWhoBa8H",
+        serviceId: "service_51sidgg",
+        templateId: "template_0i5hkbp"
     };
 
     const PROJECTS = [
